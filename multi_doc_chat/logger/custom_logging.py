@@ -10,20 +10,20 @@ class CustomLogger():
         log_file=f"{datetime.now().strftime("%m_%d_%y_%H_%M_%S")}"
         self.log_file_path=os.path.join(self.logs_dir,log_file)
 
-    def get_logger(self,name=__file__):
+    def get_custom_logger(self,name=__file__):
         logger_name=os.path.basename(name)
 
         file_handler=logging.FileHandler(self.log_file_path)
         file_handler.setLevel(logging.INFO)
-        file_handler.setFormatter(logging.Formatter("%(message)%"))
+        file_handler.setFormatter(logging.Formatter("%(message)s"))
 
         console_handler=logging.StreamHandler(self.log_file_path)
         console_handler.setLevel(logging.INFO)
-        console_handler.setFormatter(logging.Formatter("%(message)%"))
+        console_handler.setFormatter(logging.Formatter("%(message)s"))
 
         logging.basicConfig(
             level=logging.INFO,
-            format="%(message)%",
+            format="%(message)s",
             handlers=[console_handler,file_handler]
         )
 

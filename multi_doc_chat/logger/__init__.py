@@ -1,0 +1,3 @@
+from .custom_cloud_logging import Cloud_Custom_Logger
+
+LOGGER=Cloud_Custom_Logger.get_cloud_custom_logger(__name__)
