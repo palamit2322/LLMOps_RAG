@@ -3,8 +3,13 @@ import uvicorn
 from fastapi.responses import JSONResponse
 from multi_doc_chat.exception.custom_exception import AppException
 from multi_doc_chat.config.configSettings import get_settings
+from multi_doc_chat.service.llm_service import LLMService
+from multi_doc_chat.service import service_container
 
 settings=get_settings()
+service_container.llm_service=LLMService(settings)
+service_container.llm_service.load_llm()
+
 app=FastAPI(
     title=settings.PROJECT_NAME
 )
