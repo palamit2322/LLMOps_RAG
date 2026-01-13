@@ -2,8 +2,9 @@ from fastapi import FastAPI,Request,status
 import uvicorn
 from fastapi.responses import JSONResponse
 from multi_doc_chat.exception.custom_exception import AppException
-from multi_doc_chat.config.config import settings
+from multi_doc_chat.config.configSettings import get_settings
 
+settings=get_settings()
 app=FastAPI(
     title=settings.PROJECT_NAME
 )

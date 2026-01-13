@@ -1,6 +1,6 @@
 import logging
 import sys
-from multi_doc_chat.config.config import settings
+from multi_doc_chat.config.configSettings import settings
 
 def setup_logging():
     logger = logging.getLogger(settings.PROJECT_NAME)
